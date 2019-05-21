@@ -1,0 +1,9 @@
+
+*.o
+*.a
+.*.swp
+
+build/**
+
+Makefile.cfg
+

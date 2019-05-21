@@ -1,0 +1,31 @@
+
+# The file Makefile.cfg loads variables that are system specific.
+# Each user must adapt the content of Makefile.cfg
+# to have it work on their system.
+# In other words, it replaces the usual ./configure script.
+
+
+# DEFINE COMPLIATION OPTIONS HERE
+#CC:=g++
+CC:=clang++
+CCFLAGS+=-O0 -g3
+#LKFLAGS+=
+
+
+# BEFINE MACROS HERE
+
+# BOUND_CHECKING: enforces bound checking.
+# Bound checking is a very expensive operation, but extremely useful
+# when writing/debuging code. Hence, define this macro when debugging
+# and disable it when running actual simulations on a code you trust.
+MACROS+=-D BOUNDS_CHECKING #[check] remove -D from syntax
+
+
+# LIBRARY INCLUDES (FOR COMPILATION)
+INCL_HDF5  := -I /usr/include/hdf5/serial/
+INCL_GTEST := -I /usr/local/include/
+
+# LIBRARY LINKING (FOR LINKING)
+LINK_HDF5  := -L /usr/lib/x86_64-linux-gnu/ -lhdf5_serial -lhdf5_cpp
+LINK_GTEST := -L /usr/local/lib/ -lgtest -lpthread
+
